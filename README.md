@@ -1,4 +1,4 @@
-<h1>Проект Acapell</h1>
+<h1>Проект abele</h1>
 
 ## Содержание
 - [Запуск проекта](#Запуск-проекта)
@@ -9,8 +9,8 @@
 
 ## Запуск проекта
 ```bash
-$ git clone git@gitlab.com:Skripkin/acapell.git
-$ cd acapell
+$ git clone https://github.com/skripkin/adele.git
+$ cd abele
 $ npm install
 $ npm run build
 ```
