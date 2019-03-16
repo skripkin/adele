@@ -2,7 +2,8 @@
 
 $pathToFonts: './../fonts';
 
-@font-face {
-    font-family: 'MuseoSansCyrl';
-    src: url('#{$pathToFonts}/museo-sans-cyrl/MuseoSansCyrl_0.otf');
-}
+// Raleway
+@include font-face(Raleway, '#{$pathToFonts}/Raleway/Raleway-Regular');
+@include font-face(Raleway, '#{$pathToFonts}/Raleway/Raleway-Bold', bold);
+@include font-face(Raleway, '#{$pathToFonts}/Raleway/Raleway-Italic', normal, italic);
+@include font-face(Raleway, '#{$pathToFonts}/Raleway/Raleway-BoldItalic', bold, italic);

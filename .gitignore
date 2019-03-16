@@ -1,5 +1,4 @@
-DESIGN/*
-.gulp-scss-cache/*
-node_modules/*
-assets/modules/donut-chart/*
-assets/modules/trade-info/*
+.gulp-scss-cache/
+node_modules/
+package-lock.json
+app/assets/.DS_Store

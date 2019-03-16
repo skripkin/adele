@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
+const resolve = require('./resolve.config');
+
 const SOURCE_PATH = '../assets';
 const OUTPUT_PATH = '../app/assets/javascripts';
 
@@ -14,6 +16,7 @@ module.exports = merge([{
         filename: 'main.js',
         publicPath: './'
     },
+    resolve,
     module: {
         rules: [
             {

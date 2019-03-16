@@ -1,19 +1,17 @@
 'use strict';
 
 var gulp = require('gulp'),
-    watch = require('gulp-watch'),
     prefixer = require('gulp-autoprefixer'),
-    browserSync  = require('browser-sync').create(),
     sass = require('gulp-sass'),
     pug = require('pug'),
     gulpPug = require('gulp-pug'),
     concat = require('gulp-concat'),
     cssmin = require('gulp-clean-css'),
     wait = require('gulp-wait'),
-    include = require('gulp-include'),
     imagemin = require('gulp-imagemin'),
-    uglify = require('gulp-uglify'),
     flatten = require('gulp-flatten'),
+    browserSync  = require('browser-sync').create(),
+    svgicons2svgfont = require('gulp-svgicons2svgfont'),
     iconfont = require('gulp-iconfont');
 
 var runTimestamp = Math.round(Date.now() / 1000);
@@ -86,8 +84,7 @@ gulp.task('quotesBlock:build', function () {
 gulp.task('style:build', function () {
     gulp.src([
         path.src.style,
-        'node_modules/tiny-slider/dist/tiny-slider.css',
-        'node_modules/flatpickr/dist/flatpickr.css'
+        'node_modules/tiny-slider/dist/tiny-slider.css'
     ])
         .pipe(wait(200))
         .pipe(sass().on('error', sass.logError))
@@ -114,8 +111,29 @@ gulp.task('images:build', function () {
         .pipe(gulp.dest(path.build.images))
 });
 
-gulp.task('iconfont:build', function() {
+gulp.task('iconfont:collect', function() {
     return gulp.src(path.src.iconfont)
+        .pipe(
+            svgicons2svgfont({
+                fontName: 'iconfont',
+                fontHeight: 1001,
+                normalize: true,
+                prependUnicode: true,
+                formats: ['ttf', 'eot', 'woff', 'svg'],
+                timestamp: runTimestamp
+            })
+        )
+        .on('glyphs', function(glyphs, options) {
+            console.log(glyphs, options);
+        })
+        .on('error', function(message) {
+            console.log(message);
+        });
+});
+
+gulp.task('iconfont:create', function() {
+    return gulp.src(path.src.iconfont)
+        // .pipe(wait(6000))
         .pipe(
             iconfont({
                 fontName: 'iconfont',
@@ -127,6 +145,9 @@ gulp.task('iconfont:build', function() {
         .on('glyphs', function(glyphs, options) {
             console.log(glyphs, options);
         })
+        .on('error', function(message) {
+            console.log(message);
+        })
         .pipe(gulp.dest(path.build.iconfont));
 });
 
@@ -137,7 +158,8 @@ gulp.task('build', [
     'style:build',
     'styleLibs:build',
     'images:build',
-    'iconfont:build'
+    // 'iconfont:collect',
+    // 'iconfont:create'
 ]);
 
 
@@ -162,32 +184,15 @@ gulp.task('browser-sync', function() {
 /* следить за изменениями */
 gulp.task('watch', ['browser-sync'], function(){
     gulp.watch([path.watch.html], function(event, cb) {
-        //console.log(event.path);
         gulp.start('html:build');
-        // var config = require(__dirname + '/assets/content.json');
-        // return gulp.src(event.path)
-        //     .pipe(gulpPug({
-        //         pug: pug,
-        //         pretty: true,
-        //         locals: config
-        //     }))
-        //     .on('error', log)
-        //     .pipe(flatten())
-        //     .pipe(gulp.dest(path.build.html))
     });
     gulp.watch(['assets/modules/quotes-info/*.pug'], function(event, cb) {
         gulp.start('quotesBlock:build');
     });
-    gulp.watch(['assets/modules/**/*.scss', 'assets/default.scss', 'assets/buttons.scss', 'assets/landing-default.scss'], function(event, cb) {
+    gulp.watch(['assets/style.scss', 'assets/modules/**/*.scss', 'assets/default.scss', 'assets/buttons.scss', 'assets/landing-default.scss'], function(event, cb) {
         gulp.start('style:build');
     });
-    gulp.watch(['assets/style.scss'], function(event, cb) {
-        gulp.start('style:build');
-    });
-    gulp.watch(['assets/parts/**/*.pug'], function(event, cb) {
-        gulp.start('html:build');
-    });
-    gulp.watch(['assets/parts/**/*.scss', 'assets/default.scss', 'assets/buttons.scss', 'assets/landing-default.scss'], function(event, cb) {
+    gulp.watch(['assets/style.scss', 'assets/default.scss', 'assets/buttons.scss', 'assets/landing-default.scss'], function(event, cb) {
         gulp.start('style:build');
     });
     gulp.watch([path.watch.styleLibs], function(event, cb) {

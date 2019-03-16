@@ -11,7 +11,12 @@ html(lang="ru")
     block variables
     body(class=bodyClass)
         div#wrap
-            include ../parts/header/module
-            block content
-            include ../parts/footer/module
+            include ../modules/header/module
+            main.main
+                block content
+            if support 
+                include ../modules/support/module
+            include ../modules/footer/module
+        include ../modules/write/module
+        block scripts
         script(src="./../app/assets/javascripts/main.js")
