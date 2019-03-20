@@ -7,3 +7,8 @@ $pathToFonts: './../fonts';
 @include font-face(Raleway, '#{$pathToFonts}/Raleway/Raleway-Bold', bold);
 @include font-face(Raleway, '#{$pathToFonts}/Raleway/Raleway-Italic', normal, italic);
 @include font-face(Raleway, '#{$pathToFonts}/Raleway/Raleway-BoldItalic', bold, italic);
+
+//Lato
+@include font-face(Lato, '#{$pathToFonts}/Lato/Lato-Regular', $exts: eot ttf woff);
+@include font-face(Lato, '#{$pathToFonts}/Lato/Lato-Bold', bold, $exts: eot ttf woff);
+@include font-face(Lato, '#{$pathToFonts}/Lato/Lato-Italic', normal, italic, $exts: eot ttf woff);
