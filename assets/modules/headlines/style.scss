@@ -1,0 +1,31 @@
+.headlines {
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__left {
+        font-size: 1.6em;
+        line-height: 30px;
+        font-family: "Raleway";
+        font-weight: 800;
+        text-align: center;
+        color: $black;
+        border-right: solid $blue 1px;
+        padding: 0 15px;
+    }
+
+    &__right {
+        @extend .headlines__left;
+        font-weight: 500;
+        border-right: none;
+    }
+
+    &__bottom {
+        font-size: 0.8em;
+        line-height: 40px;
+        font-family: "Lato";
+        font-weight: 300;
+        color: $gray;
+    }
+}
