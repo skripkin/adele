@@ -89,19 +89,19 @@ body {
   position: relative;
   top: -4px; }
   .burger-menu, .burger-menu::before, .burger-menu::after {
-    width: 25px;
-    height: 4px;
-    border-radius: 1px;
-    background-color: #999999; }
+    width: 35px;
+    height: 6px;
+    border-radius: 2px;
+    background-color: #666666; }
   .burger-menu::before, .burger-menu::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0; }
   .burger-menu::before {
-    top: -8px; }
+    top: -10px; }
   .burger-menu::after {
-    top: 8px; }
+    top: 10px; }
   .burger-menu--cross {
     margin-top: 9px;
     height: 18px;
@@ -337,6 +337,28 @@ body {
 
 .baseButton {
   padding: 7px 75px; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: rgba(102, 102, 102, 0.15) solid 1px;
+  padding: 22px 0; }
+  .header__logo {
+    display: flex; }
+  .header__logoImage {
+    width: 63px;
+    height: 62px;
+    margin-right: 10px; }
+  .header__textImage {
+    font-size: 17px;
+    line-height: 50px;
+    color: #666666;
+    font-family: "Raleway-Bold";
+    font-weight: 900;
+    align-self: center; }
+  .header__menuBox {
+    align-self: center;
+    margin-right: 35px; }
 
 .tns-outer {
   padding: 0 !important; }
