@@ -81,6 +81,47 @@ body {
   font-weight: 700;
   color: #fafcfc; }
 
+.no-scroll {
+  overflow: hidden; }
+
+.burger-menu {
+  display: inline-block;
+  position: relative;
+  top: -4px; }
+  .burger-menu, .burger-menu::before, .burger-menu::after {
+    width: 25px;
+    height: 4px;
+    border-radius: 1px;
+    background-color: #999999; }
+  .burger-menu::before, .burger-menu::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0; }
+  .burger-menu::before {
+    top: -8px; }
+  .burger-menu::after {
+    top: 8px; }
+  .burger-menu--cross {
+    margin-top: 9px;
+    height: 18px;
+    background-color: transparent; }
+    .burger-menu--cross::before, .burger-menu--cross::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: calc(50% - 1px);
+      height: 20px;
+      width: 1px;
+      background-color: rgba(102, 102, 102, 0.5);
+      border-radius: 1px; }
+    .burger-menu--cross::before {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); }
+    .burger-menu--cross::after {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
+
 @font-face {
   font-family: "Raleway";
   src: url("./../fonts/Raleway/Raleway-Regular.eot?") format("eot"), url("./../fonts/Raleway/Raleway-Regular.woff2") format("woff2"), url("./../fonts/Raleway/Raleway-Regular.woff") format("woff"), url("./../fonts/Raleway/Raleway-Regular.ttf") format("truetype"), url('./../fonts/Raleway/Raleway-Regular.svg#str-replace(Raleway, " ", "_")') format("svg"); }
@@ -101,6 +142,21 @@ body {
   font-style: italic;
   font-weight: bold;
   src: url("./../fonts/Raleway/Raleway-BoldItalic.eot?") format("eot"), url("./../fonts/Raleway/Raleway-BoldItalic.woff2") format("woff2"), url("./../fonts/Raleway/Raleway-BoldItalic.woff") format("woff"), url("./../fonts/Raleway/Raleway-BoldItalic.ttf") format("truetype"), url('./../fonts/Raleway/Raleway-BoldItalic.svg#str-replace(Raleway, " ", "_")') format("svg"); }
+
+@font-face {
+  font-family: "Lato";
+  src: url("./../fonts/Lato/Lato-Regular.eot?") format("eot"), url("./../fonts/Lato/Lato-Regular.ttf") format("truetype"), url("./../fonts/Lato/Lato-Regular.woff") format("woff"); }
+
+@font-face {
+  font-family: "Lato";
+  font-weight: bold;
+  src: url("./../fonts/Lato/Lato-Bold.eot?") format("eot"), url("./../fonts/Lato/Lato-Bold.ttf") format("truetype"), url("./../fonts/Lato/Lato-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: normal;
+  src: url("./../fonts/Lato/Lato-Italic.eot?") format("eot"), url("./../fonts/Lato/Lato-Italic.ttf") format("truetype"), url("./../fonts/Lato/Lato-Italic.woff") format("woff"); }
 
 @font-face {
   font-family: 'iconic';
@@ -153,6 +209,134 @@ body {
     content: ""; }
   .iconic--print::after {
     content: ""; }
+
+.headlines {
+  display: flex;
+  flex-direction: column;
+  text-align: center; }
+  .headlines__left, .headlines__right {
+    font-size: 1.6em;
+    line-height: 30px;
+    font-family: "Raleway";
+    font-weight: 800;
+    text-align: center;
+    color: #333740;
+    border-right: solid #18a3dd 1px;
+    padding: 0 15px; }
+  .headlines__right {
+    font-weight: 500;
+    border-right: none; }
+  .headlines__bottom {
+    font-size: 0.8em;
+    line-height: 40px;
+    font-family: "Lato";
+    font-weight: 300;
+    color: #999999; }
+
+.content {
+  display: flex;
+  flex-direction: column; }
+  .content--right .content {
+    flex-direction: row-reverse; }
+    .content--right .content__box {
+      padding-left: none;
+      padding-right: 10px;
+      text-align: right; }
+      .content--right .content__box::before {
+        right: 0;
+        left: calc(100% - 5px); }
+    .content--right .content__description {
+      text-align: right; }
+  .content__box {
+    position: relative;
+    padding-left: 10px; }
+    .content__box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 5px;
+      background-color: #18a3dd;
+      border-radius: 4px; }
+  .content__title, .content__subTitle {
+    font-size: 3em;
+    line-height: 45px;
+    font-family: "Raleway";
+    font-weight: 900;
+    color: #333740;
+    padding: 10px 20px 0; }
+  .content__subTitle {
+    border-right: none;
+    line-height: 30px;
+    font-size: 1.5em; }
+  .content__description {
+    font-size: 0.8em;
+    line-height: 50px;
+    font-family: "Lato";
+    font-weight: 300;
+    color: #999999; }
+
+.menu__window {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 460px;
+  width: 100%;
+  z-index: 2;
+  border-radius: 10px;
+  background-color: #fafcfc; }
+  .menu__window--opened {
+    display: flex;
+    flex-direction: column; }
+
+.menu__background {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1; }
+
+.menu__close {
+  align-self: flex-end;
+  padding: 5px; }
+
+.menu__send {
+  align-self: center;
+  margin-top: 50px; }
+
+.menu__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 25px; }
+
+.menu__name, .menu__email, .menu__subject {
+  flex: 0 1 47%;
+  margin: 25px 0;
+  background-color: #fafcfc;
+  border: #fafcfc;
+  border-bottom: rgba(102, 102, 102, 0.25) solid 1px; }
+  .menu__name::-webkit-input-placeholder, .menu__email::-webkit-input-placeholder, .menu__subject::-webkit-input-placeholder {
+    color: rgba(102, 102, 102, 0.25); }
+  .menu__name::-ms-input-placeholder, .menu__email::-ms-input-placeholder, .menu__subject::-ms-input-placeholder {
+    color: rgba(102, 102, 102, 0.25); }
+  .menu__name::placeholder, .menu__email::placeholder, .menu__subject::placeholder {
+    color: rgba(102, 102, 102, 0.25); }
+  .menu__name:focus, .menu__email:focus, .menu__subject:focus {
+    outline: none; }
+
+.menu__subject {
+  flex: none;
+  width: 100%; }
+
+.baseButton {
+  padding: 7px 75px; }
 
 .tns-outer {
   padding: 0 !important; }

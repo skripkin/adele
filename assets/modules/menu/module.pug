@@ -1,0 +1,19 @@
+.menu
+    .menu__window
+        button.menu__close
+            span.burger-menu.burger-menu--cross
+        .menu__line
+            -
+                var textLine = {
+                    left:'INQUiRE',
+                    right:'YOUR ISSUE',
+                    bottom:'We are alweys happy to reply our customers.'
+                };
+            include ../headlines/module
+        form.menu__form(action="#", method="post")
+            input.menu__name(type="name" placeholder="Name")
+            input.menu__email(type="email" placeholder="Email")
+            input.menu__subject(type="text" placeholder="Subject")
+        button.menu__send.baseButton(type="value") SEND
+    button.menu__clik
+        span.burger-menu
