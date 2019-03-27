@@ -29,10 +29,10 @@
     &,
     &::before,
     &::after {
-        width: 25px;
-        height: 4px;
-        border-radius: 1px;
-        background-color: $gray;
+        width: 35px;
+        height: 6px;
+        border-radius: 2px;
+        background-color: $dark-gray;
     }
 
     &::before,
@@ -43,10 +43,10 @@
         right: 0;
     }
     &::before {
-        top: -8px;
+        top: -10px;
     }
     &::after {
-        top: 8px;
+        top: 10px;
     }
 
     &--cross {

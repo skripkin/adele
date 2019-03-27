@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: rgba($color: #666666, $alpha: 0.15) solid 1px;
+    padding: 22px 0;
+
+    &__logo {
+        display: flex;
+    }
+
+    &__logoImage {
+        width: 63px;
+        height: 62px;
+        margin-right: 10px;
+    }
+
+    &__textImage {
+        font-size: 17px;
+        line-height: 50px;
+        color: $dark-gray;
+        font-family: "Raleway-Bold";
+        font-weight: 900;
+        align-self: center;
+    }
+
+    &__menuBox {
+        align-self: center;
+        margin-right: 35px;
+    }
+}
