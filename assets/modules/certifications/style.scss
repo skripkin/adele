@@ -1,0 +1,10 @@
+.certificat {
+    display: flex;
+    border-right: 2px solid $light-gray;
+    padding: 15px 50px;
+    align-items: center;
+
+    &__item {
+        width: 100%;
+    }
+}
