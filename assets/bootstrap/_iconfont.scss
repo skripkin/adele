@@ -11,7 +11,7 @@ $pathToIconFont: './../iconfont/';
         url('#{$pathToIconFont}iconfont.svg#iconic') format('svg');
 }
 
-$icons: (("name":"shopping-cart","value":"\EA01"),("name":"user","value":"\EA02"),("name":"four-columns","value":"\EA03"),("name":"two-columns","value":"\EA04"),("name":"photo","value":"\EA05"),("name":"calendar","value":"\EA13"),("name":"email","value":"\EA33"),("name":"facebook","value":"\EA35"),("name":"instagram","value":"\EA4E"),("name":"location","value":"\EA5D"),("name":"paper-plane","value":"\EA7A"),("name":"phone-call","value":"\EA7C"),("name":"search","value":"\EA8B"),("name":"vk","value":"\EAA5"),("name":"sent-mail","value":"\EAAF"),("name":"paper-clip","value":"\EAB0"),("name":"print","value":"\EAB1"));
+$icons: (("name":"ball","value":"\EA01"),("name":"facebook","value":"\EA02"),("name":"twit","value":"\EA03"),("name":"youtube","value":"\EA04"));
 
 @function iconic-char($filename) {
     @each $icon in $icons {
