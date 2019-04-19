@@ -175,40 +175,14 @@ body {
   color: inherit;
   line-height: normal;
   vertical-align: middle; }
-  .iconic--shopping-cart::after {
+  .iconic--ball::after {
     content: ""; }
-  .iconic--user::after {
-    content: ""; }
-  .iconic--four-columns::after {
-    content: ""; }
-  .iconic--two-columns::after {
-    content: ""; }
-  .iconic--photo::after {
-    content: ""; }
-  .iconic--calendar::after {
-    content: ""; }
-  .iconic--email::after {
-    content: ""; }
   .iconic--facebook::after {
-    content: ""; }
-  .iconic--instagram::after {
-    content: ""; }
-  .iconic--location::after {
-    content: ""; }
-  .iconic--paper-plane::after {
-    content: ""; }
-  .iconic--phone-call::after {
-    content: ""; }
-  .iconic--search::after {
-    content: ""; }
-  .iconic--vk::after {
-    content: ""; }
-  .iconic--sent-mail::after {
-    content: ""; }
-  .iconic--paper-clip::after {
-    content: ""; }
-  .iconic--print::after {
-    content: ""; }
+    content: ""; }
+  .iconic--twit::after {
+    content: ""; }
+  .iconic--youtube::after {
+    content: ""; }
 
 .headlines {
   display: flex;
@@ -357,8 +331,45 @@ body {
     font-weight: 900;
     align-self: center; }
   .header__menuBox {
-    align-self: center;
-    margin-right: 35px; }
+    align-self: center; }
+
+.certificat {
+  display: flex;
+  border-right: 2px solid #f1f4f5;
+  padding: 15px 50px;
+  align-items: center; }
+  .certificat__item {
+    width: 100%; }
+
+.footer {
+  padding: 35px 0;
+  background-color: #f1f4f5; }
+  .footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .footer__main-block, .footer__feedback-block {
+    display: flex; }
+  .footer__content-info, .footer__main-item a, .footer__feedback-item {
+    font-size: 17px;
+    letter-spacing: 0px;
+    line-height: 22px;
+    color: #333740;
+    font-family: "Lato";
+    font-weight: 300; }
+  .footer__main-item {
+    margin-right: 15px; }
+    .footer__main-item:last-child a {
+      border: none; }
+    .footer__main-item a {
+      display: block;
+      font-size: 14px;
+      margin-top: 15px;
+      border-right: 1px solid #999999;
+      padding-right: 15px; }
+  .footer__feedback-item {
+    font-size: 24px;
+    margin-left: 45px; }
 
 .tns-outer {
   padding: 0 !important; }
